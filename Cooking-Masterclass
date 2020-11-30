@@ -1,0 +1,23 @@
+function cookingMasterclass(arg1, arg2, arg3, arg4, arg5) {
+    let budget = Number(arg1);
+    let numStudents = Number(arg2);
+    let priceFlour = Number(arg3);
+    let priceEgg = Number(arg4);
+    let priceApron = Number(arg5);
+    let numPaidFlour = 0;
+    for (let a = 0; a <= numStudents; a++) {
+        if (a % 5 !== 0) {
+            numPaidFlour++;
+        }
+    }
+
+    let totalPrice = (priceFlour*numPaidFlour) + ((priceEgg * 10) * numStudents) + (Math.ceil(numStudents * 1.2) * priceApron);
+
+    if (totalPrice <= budget) {
+        console.log(`Items purchased for ${totalPrice.toFixed(2)}$.`);
+    } else {
+        let dif = totalPrice - budget;
+        console.log(`${dif.toFixed(2)}$ more needed.`);
+    }
+
+}
